@@ -1,0 +1,44 @@
+-Player character:
+	-Movement:
+		-Mouse follow
+		-Jumping from ground (left mouse btn)
+	-Simple physics simulation:
+		-Linear velocity and acceleration
+		-Forces
+		-Euler integration (deltaTime)
+	-Collision:
+		-Ground
+		-Sides of screen
+	-Animations:
+		-Still
+		-Run (left/right)
+		-Jump
+		-Direction shift (left/right)
+		-Fall	
+-Game:
+	-Game over when PC collides /w the ground and has a certain downwards velocity
+	-"Start" screen (50% opaque) with "play" button and game instructions
+	-"Restart" screen (25% opaque) with "play again" button, current score and highscore
+	-Pause game on right mouse button click
+	-"Pause" screen (75% opaque) with "continue" button
+-Bell spawning:
+	-New bell every x milliseconds
+	-Initial "easy" spawn (not too far apart)
+	-Random spawning after some point
+-Bells:
+	-Despawns after being too off-screen
+	-On collision:
+		-Despawns
+		-Applies upwards force to PC
+		-Adds to the score
+	-Swinging animation
+-Sparrows:
+	-Goomba movement
+	-Despawns after being too off-screen
+	-On collision:
+		-Despawns
+		-Applies an upwards force to PC
+		-Doubles the score
+	-Flapping animation
+-Sparrow spawning:
+	-New Sparrow every x bells

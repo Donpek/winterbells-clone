@@ -1,0 +1,19 @@
+winterbells-clone or "A Winter Bells clone in C using SDL2"
+
+This is my third game clone in C. The first one I didn't even make into a working game, the second one wasn't too much of a mess, but there're still plenty of things I can add like sound effects, music, score, levels, menu screen, highscore etc.
+
+The game this time is Orisinal's "Winter Bells". (www.ferryhalim.com/orisinal/g3/bells/htm)
+
+My intentions with this attempt are to:
+- use git throughout the project (and to make genuine use of it, hopefully)
+- give a shot at an improved, more meaningful file and code structure
+- write a set of general-use functions to display text in-game via SDL2_ttf
+- clean up the already-written graphics and logger modules
+- successfully add sound to the game (the Christmas-y music in that game is absolutely lovely)
+- write a module for handling frame-based animation
+- make the game run on Linux as well as on Windows
+- end up with something more polished than all of my previous attempts at games
+- write a postmortem after I feel like I'm done with it
+- figure out where the Goldilocks zone of the ratio of global vs. local variables lies
+
+All of that being said, let's go!
