@@ -2,7 +2,7 @@ winterbells-clone or "A Winter Bells clone in C using SDL2"
 
 This is my third game clone in C. The first one I didn't even make into a working game, the second one wasn't too much of a mess, but there're still plenty of things I can add like sound effects, music, score, levels, menu screen, highscore etc.
 
-The game this time is Orisinal's "Winter Bells". (www.ferryhalim.com/orisinal/g3/bells/htm)
+The game this time is Orisinal's "Winter Bells". (www.ferryhalim.com/orisinal/g3/bells.htm)
 
 My intentions with this attempt are to:
 - use git throughout the project (and to make genuine use of it, hopefully)
