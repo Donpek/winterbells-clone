@@ -1,5 +1,8 @@
 #include "input.h"
 //
+void input_init(){
+  mouse.prev_click = mouse.curr_click = 0;
+}
 int input_update(){
   SDL_Event e;
   while(SDL_PollEvent(&e)){
@@ -7,6 +10,12 @@ int input_update(){
     else if(e.type == SDL_MOUSEMOTION){
       mouse.x = e.motion.x;
       mouse.y = e.motion.y;
+    }else if(e.type == SDL_MOUSEBUTTONDOWN){
+      mouse.prev_click = mouse.curr_click;
+      mouse.curr_click = 1;
+    }else if(e.type == SDL_MOUSEBUTTONUP){
+      mouse.prev_click = mouse.curr_click;
+      mouse.curr_click = 0;
     }
   }
   /*prev_key.up = key.up;

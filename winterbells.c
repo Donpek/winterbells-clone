@@ -5,6 +5,7 @@ int main(int argc, char *argv[]){
   logger_init();
   graphics_init();
   physics_init();
+  input_init();
   game_load();
   while(game_mode != GAMEMODE_QUIT){
     game_update();
