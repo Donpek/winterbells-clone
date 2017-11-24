@@ -1,0 +1,6 @@
+# executable
+WinterBells
+# gimp files
+assets/*.xcf
+# log(s)
+*.txt
