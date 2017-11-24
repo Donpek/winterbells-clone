@@ -1,9 +1,11 @@
 #ifndef WINTERBELLS
 #define WINTERBELLS
 //
+#include "modules/typedefs.h"
 #include "modules/logger.h"
 #include "modules/graphics.h"
 #include "modules/input.h"
+#include "modules/physics.h"
 #include "game-objects/stage.h"
 #include "game-objects/player.h"
 //
@@ -13,11 +15,6 @@
 #define GAMEMODE_RESTART 3
 #define GAMEMODE_PAUSE 4
 #define GAMEMODE_HIGHSCORES 5
-//
-typedef unsigned char Uint8;
-typedef signed short Sint16;
-typedef unsigned char bool;
-enum{false,true};
 //
 Uint8 game_mode;
 //

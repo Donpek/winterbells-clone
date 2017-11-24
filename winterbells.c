@@ -4,6 +4,7 @@ int main(int argc, char *argv[]){
   SDL_Init(0);
   logger_init();
   graphics_init();
+  physics_init();
   game_load();
   while(game_mode != GAMEMODE_QUIT){
     game_update();
@@ -39,5 +40,6 @@ void game_update(){
   if(input_update() == INPUT_QUIT_APPLICATION){
     game_mode = GAMEMODE_QUIT; return;
   }
+  physics_update();
   player_update();
 }
