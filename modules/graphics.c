@@ -1,29 +1,31 @@
 #include "graphics.h"
 //
-// SDL_Texture *load_texture(char *file, SDL_Renderer *renderer, FILE *fp){
-//   SDL_Texture *texture = NULL;
-//   SDL_Surface *loaded_image = SDL_LoadBMP(file);
-//   if(loaded_image == NULL){
-//     logSDLError(fp,"SDL_LoadBMP");
-//   }else{
-//     texture = SDL_CreateTextureFromSurface(renderer,loaded_image);
-//     SDL_FreeSurface(loaded_image);
-//     if(texture == NULL){
-//       logSDLError(fp,"SDL_CreateTextureFromSurface");
-//     }
-//   }
-//   return texture;
-// }
+SDL_Texture *graphics_load_texture(char *filepath){
+  SDL_Texture *texture = NULL;
+  SDL_Surface *loaded_image = SDL_LoadBMP(filepath);
+  if(loaded_image == NULL){
+    log_error_SDL("SDL_LoadBMP");
+  }else{
+    texture = SDL_CreateTextureFromSurface(ren, loaded_image);
+    SDL_FreeSurface(loaded_image);
+    if(texture == NULL){
+      log_error_SDL("SDL_CreateTextureFromSurface");
+    }
+  }
+  return texture;
+}
+//
 void graphics_quit(){
   SDL_DestroyRenderer(ren);
   SDL_DestroyWindow(win);
 }
-// void render_whole_texture(SDL_Texture *tex, SDL_Renderer *ren, int x, int y){
-//   SDL_Rect dst;
-//   dst.x = x; dst.y = y;
-//   SDL_QueryTexture(tex,NULL,NULL,&dst.w,&dst.h);
-//   SDL_RenderCopy(ren,tex,NULL,&dst);
-// }
+//
+void graphics_render_texture_whole(SDL_Texture *tex, int x, int y){
+  SDL_Rect dst = {x, y, 0, 0};
+  SDL_QueryTexture(tex,NULL,NULL,&dst.w,&dst.h);
+  SDL_RenderCopy(ren,tex,NULL,&dst);
+}
+//
 void graphics_init(){
   if(SDL_InitSubSystem(SDL_INIT_VIDEO) != 0){
     log_error_SDL("SDL_INIT_VIDEO");
