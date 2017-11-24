@@ -1,16 +1,17 @@
 #include "stage.h"
 //
 void stage_draw(){
-  graphics_render_texture_whole(bg, 0, 0);
-  graphics_render_texture_whole(ground, 0, 0);
+  graphics_render_texture_whole(tex_bg, 0, 0);
+  graphics_render_texture_whole(tex_ground, 0, 0);
 }
 //
 void stage_load(){
-  bg = graphics_load_texture("assets/bg.bmp");
-  ground = graphics_load_texture("assets/ground.bmp");
+  tex_bg = graphics_load_texture("assets/bg.bmp");
+  tex_ground = graphics_load_texture("assets/ground.bmp");
+  ground.y = GROUND_DEFAULT_Y;
 }
 //
 void stage_unload(){
-  SDL_DestroyTexture(bg);
-  SDL_DestroyTexture(ground);
+  SDL_DestroyTexture(tex_bg);
+  SDL_DestroyTexture(tex_ground);
 }

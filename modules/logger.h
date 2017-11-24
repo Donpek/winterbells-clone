@@ -8,7 +8,7 @@
 FILE *logger;
 //
 #define LOGGER_FILENAME "log.txt"
-#define LOGGER_MODE "a"
+#define LOGGER_MODE "w"
 //
 void logger_init();
 void log_debug(char *message);

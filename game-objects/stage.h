@@ -3,10 +3,13 @@
 //
 #include "../modules/graphics.h"
 //
-
+#define GROUND_DEFAULT_Y WINDOW_HEIGHT - 150
 //
-SDL_Texture *bg;
-SDL_Texture *ground;
+SDL_Texture *tex_bg;
+SDL_Texture *tex_ground;
+struct{
+  Sint16 y;
+} ground;
 //
 void stage_draw();
 void stage_load();
