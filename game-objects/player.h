@@ -8,19 +8,19 @@
 #include "../modules/physics.h"
 #include "stage.h"
 //
-#define PLAYER_MASS 1
-#define PLAYER_MOUSE_ACCELERATION_SCALAR 0.000005
+#define PLAYER_MASS 5
+#define PLAYER_MOUSE_ACCELERATION_SCALAR 0.000015
 #define PLAYER_FRICTION 0.05
 #define PLAYER_GRAVITY PHYSICS_GRAVITY * PLAYER_MASS
-#define PLAYER_JUMP_FORCE 0.025
+#define PLAYER_JUMP_FORCE -0.065
 //
 SDL_Texture *tex_rabbit;
-struct{
+struct Player{
   Vector2 pos;
-  int w, h;
+  Uint32 w, h;
   Vector2 acceleration, velocity;
   float mass;
-  Uint8 on_ground;
+  bool on_ground;
 } player;
 //
 void player_draw();

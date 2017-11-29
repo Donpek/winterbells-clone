@@ -6,8 +6,10 @@
 #include "modules/graphics.h"
 #include "modules/input.h"
 #include "modules/physics.h"
+#include "modules/random.h"
 #include "game-objects/stage.h"
 #include "game-objects/player.h"
+#include "game-objects/bell.h"
 //
 #define GAMEMODE_QUIT 0
 #define GAMEMODE_START 1

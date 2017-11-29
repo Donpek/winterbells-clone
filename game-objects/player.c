@@ -11,7 +11,7 @@ void player_load(){
     log_error_SDL("SDL_QueryTexture tex_rabbit");
   }
   player.velocity.x = player.velocity.y = 0;
-  player.acceleration = player.acceleration;
+  player.acceleration = player.velocity;
   player.mass = PLAYER_MASS;
   player.on_ground = false;
 }
@@ -19,12 +19,9 @@ void player_unload(){
   SDL_DestroyTexture(tex_rabbit);
 }
 void player_update(){
-  player.acceleration.x = player.acceleration.y = 0;
-  //
   if(!player.on_ground){
     player.acceleration.y += PLAYER_GRAVITY;
   }
-
   // horizontal movement
   player.acceleration.x +=
     (mouse.x - (player.pos.x + player.w/2)) * PLAYER_MOUSE_ACCELERATION_SCALAR;
@@ -32,7 +29,7 @@ void player_update(){
   // jumping
   if(mouse.curr_click && !mouse.prev_click && player.on_ground){
     log_debug("jmp");
-    player.acceleration.y -= PLAYER_JUMP_FORCE;
+    player.acceleration.y += PLAYER_JUMP_FORCE;
   }
 
   // first integration
@@ -61,6 +58,8 @@ void player_update(){
     player.pos,
     vector2_mul(player.velocity, delta_time)
   );
+  //
+  player.acceleration.x = player.acceleration.y = 0;
 }
 //
 bool player_is_colliding_with_ground(){

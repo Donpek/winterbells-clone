@@ -6,6 +6,7 @@ int main(int argc, char *argv[]){
   graphics_init();
   physics_init();
   input_init();
+  random_init();
   game_load();
   while(game_mode != GAMEMODE_QUIT){
     game_update();
@@ -24,17 +25,20 @@ int main(int argc, char *argv[]){
 void game_draw(){
   stage_draw();
   player_draw();
+  bells_draw();
   SDL_RenderPresent(ren);
 }
 //
 void game_load(){
   stage_load();
   player_load();
+  bells_load();
   game_mode = GAMEMODE_START;
 }
 void game_unload(){
   stage_unload();
   player_unload();
+  bells_unload();
 }
 //
 void game_update(){
@@ -42,5 +46,6 @@ void game_update(){
     game_mode = GAMEMODE_QUIT; return;
   }
   physics_update();
+  bells_update();
   player_update();
 }
