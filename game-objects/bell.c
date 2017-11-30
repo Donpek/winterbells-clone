@@ -12,10 +12,20 @@ void bells_load(){
   if(SDL_QueryTexture(tex_bell, 0, 0, &w, &h) != 0){
     log_error_SDL("SDL_QueryTexture tex_bell");
   }
-  for(i=0;i<BELL_MAX_BELLS_AT_ONCE;i++){
+  {
+    bells[0].w = w;
+    bells[0].h = h;
+    bells[0].x = random_range(0, WINDOW_WIDTH - w);
+    bells[0].y = BELL_DESPAWN_Y_LEVEL - (i + 1) * h;
+  }
+  for(i=1;i<BELL_MAX_BELLS_AT_ONCE;i++){
+    Sint8 direction = rand() % 2 == 0 ? 1 : -1;
     bells[i].w = w;
     bells[i].h = h;
-    bells[i].x = random_range(0, WINDOW_WIDTH - w);
+    bells[i].x = bells[i-1].x + bells[i].w * direction;
+    if(bells[i].x < 0 || bells[i].x > WINDOW_WIDTH - w){
+      bells[i].x = random_range(0, WINDOW_WIDTH - w);
+    }
     bells[i].y = BELL_DESPAWN_Y_LEVEL - (i + 1) * h;
   }
   bell_current_highest_index = BELL_MAX_BELLS_AT_ONCE -1;
@@ -28,7 +38,7 @@ void bells_update(){
   for(i=0;i<BELL_MAX_BELLS_AT_ONCE;i++){
     // non-player-driven despawning
     if(bells[i].y > BELL_DESPAWN_Y_LEVEL - bells[i].h
-/*|| bells[i].y > camera.y + WINDOW_HEIGHT*/){
+|| bells[i].y > camera.y + WINDOW_HEIGHT){
       bells[i].x = random_range(0, WINDOW_WIDTH - bells[i].w);
       bells[i].y = bells[bell_current_highest_index].y - bells[i].h;
       bell_current_highest_index = i;

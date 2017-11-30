@@ -45,6 +45,7 @@ void player_update(){
   // collision detection against stage
   if(!player.on_ground && player_is_colliding_with_ground()){
     player.velocity.y = 0;
+    player.pos.y = GROUND_DEFAULT_Y;
     player.on_ground = true;
   }else{player.on_ground = false;}
   if(player_is_colliding_with_right_side()){
