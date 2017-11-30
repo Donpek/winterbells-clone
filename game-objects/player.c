@@ -1,7 +1,7 @@
 #include "player.h"
 //
 void player_draw(){
-  graphics_render_texture_whole(tex_rabbit, player.pos.x, player.pos.y);
+  graphics_render_texture_whole(tex_rabbit, player.pos.x, player.pos.y - camera.y);
 }
 void player_load(){
   tex_rabbit = graphics_load_texture("assets/rabbit.bmp");

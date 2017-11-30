@@ -8,6 +8,7 @@ int main(int argc, char *argv[]){
   input_init();
   random_init();
   game_load();
+  camera_init();
   while(game_mode != GAMEMODE_QUIT){
     game_update();
     game_draw();
@@ -23,6 +24,7 @@ int main(int argc, char *argv[]){
 }
 //
 void game_draw(){
+  SDL_RenderClear(ren);
   stage_draw();
   player_draw();
   bells_draw();
@@ -48,4 +50,5 @@ void game_update(){
   physics_update();
   bells_update();
   player_update();
+  camera_update();
 }

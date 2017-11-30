@@ -2,7 +2,7 @@
 //
 void stage_draw(){
   graphics_render_texture_whole(tex_bg, 0, 0);
-  graphics_render_texture_whole(tex_ground, 0, 0);
+  graphics_render_texture_whole(tex_ground, 0, -camera.y);
 }
 //
 void stage_load(){

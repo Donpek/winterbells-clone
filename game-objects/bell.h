@@ -5,6 +5,7 @@
 #include "../modules/graphics.h"
 #include "../modules/random.h"
 #include "player.h"
+#include "../modules/camera.h"
 //
 #define BELL_GRAVITY 1
 #define BELL_MAX_BELLS_AT_ONCE 20

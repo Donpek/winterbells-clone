@@ -3,7 +3,7 @@
 void bells_draw(){
   int i;
   for(i=0;i<BELL_MAX_BELLS_AT_ONCE;i++){
-    graphics_render_texture_whole(tex_bell, bells[i].x, bells[i].y);
+    graphics_render_texture_whole(tex_bell, bells[i].x, bells[i].y - camera.y);
   }
 }
 void bells_load(){

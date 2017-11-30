@@ -7,6 +7,7 @@
 #include "../modules/logger.h"
 #include "../modules/physics.h"
 #include "stage.h"
+#include "../modules/camera.h"
 //
 #define PLAYER_MASS 5
 #define PLAYER_MOUSE_ACCELERATION_SCALAR 0.000015

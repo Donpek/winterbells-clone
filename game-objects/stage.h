@@ -2,6 +2,8 @@
 #define STAGE
 //
 #include "../modules/graphics.h"
+#include "../modules/camera.h"
+#include "player.h"
 //
 #define GROUND_DEFAULT_Y WINDOW_HEIGHT - 150
 //
